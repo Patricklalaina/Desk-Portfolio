@@ -20,7 +20,7 @@ body {
 	flex-direction: row;
 	justify-content: space-around;
 	align-items: center;
-	background:white;
+	background: rgb(36, 36, 36);
 	width: 410px;
 	font-size: 4rem;
 	position: fixed;
@@ -30,30 +30,84 @@ body {
 	-webkit-box-shadow: -2px 6px 4px 4px rgba(112,112,112,0.87);
 	box-shadow: -2px 6px 4px 4px rgba(112,112,112,0.87);
 	padding: 10px;
-	z-index: 1000;
+	z-index: 100;
 }
 
 .dock .home {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	color: #FFAE9D;
 }
 
+.dock .home-hide {
+	width: 10px;
+	height: 10px;
+	background-color: #FFAE9D;
+	margin-top: 5px;
+	border-radius: 50%;
+}
+
 .dock .about {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	color: #137C8B;
 }
 
+.dock .about-hide {
+	width: 10px;
+	height: 10px;
+	background-color: #137C8B;
+	margin-top: 5px;
+	border-radius: 50%;
+}
+
 .dock .project {
-	color: #392E2C;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #7d86ff;
 }
+
+.dock .project-hide {
+	width: 10px;
+	height: 10px;
+	background-color: #7d86ff;
+	margin-top: 5px;
+	border-radius: 50%;
+}
+
 .dock .contact {
-	color: #344D59;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #5fccff;
 }
-.dock >* {
+
+.dock >* .hide {
+	display: none;
+}
+
+.dock .contact-hide {
+	width: 10px;
+	height: 10px;
+	background-color: #5fccff;
+	margin-top: 5px;
+	border-radius: 50%;
+}
+
+.dock >* i {
 	transition: linear;
 	transition-duration: 0.3s;
 	cursor: pointer;
 }
 
-.dock >*:hover {
+.dock >* i:hover {
 	transform: translate(0px, -20px) scale(1.2, 1.2);
 	text-shadow: 2px 9px 8px #7C7C7C;
 }
@@ -63,9 +117,9 @@ body {
 	flex-direction: column;
 	width: 900px;
 	height: 600px;
-	background-color: rgba(200, 200, 200);
+	background-color: rgb(32, 32, 32);
 	border-radius: 20px;
-	border: 3px rgb(240, 239, 239) solid;
+	border: 3px rgb(36, 36, 36) solid;
 	position: absolute;
 }
 
@@ -73,13 +127,14 @@ body {
 	display: flex;
 	height: 50px;
 	width: 100%;
-	background-color: aliceblue;
+	background-color: rgb(36, 36, 36);
 	align-items: center;
 	border-radius: 17px 17px 0px 0px;
+	color: white;
 }
 
 .window .head .title {
-	width: 850px;
+	width: 820px;
 	text-align: center;
 	font-weight: bold;
 	font-size: larger;
@@ -91,15 +146,47 @@ body {
 	cursor: grab;
 }
 
-.window .head .close:hover{
+.window .head .btn-win >*:hover{
 	color: red;
 	cursor: pointer;
 }
 
-.window .head .close {
+.window .head .btn-win {
 	display: flex;
-	justify-content: center;
-	width: 50px;
+	justify-content: space-around;
+	width: 80px;
 	align-items: center;
 	text-align: center;
+}
+
+
+.hide-win {
+	animation: magicLamp 0.5s forwards ease-in;
+}
+
+@keyframes magicLamp {
+	0% {
+		transform: translate(0, 0) scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: translate(var(--centerX), var(--centerY)) scale(0);
+		opacity: 0;
+	}
+}
+
+
+@keyframes magicRestore {
+	0% {
+		transform: translate(var(--centerX), var(--centerY)) scale(0);
+		opacity: 0;
+	}
+	100% {
+		transform: translate(0, 0) scale(1);
+		opacity: 1;
+	}
+}
+
+.restore-win {
+	animation: magicRestore 0.5s forwards ease-out;
 }

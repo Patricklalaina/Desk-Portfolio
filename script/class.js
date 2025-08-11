@@ -7,28 +7,50 @@ class win {
 	_name
 	_offset = {x:0, y:0}
 	_isDragging = false
-	constructor(name, parent){
+	_reduced = false
+	_creator
+	_position
+	constructor(name, parent, creator){
 		this._parent = parent;
 		this._name = name;
+		this._creator = creator;
 		let content = `\
 			<div class="head">\
 				<div class="title title-${name}"><p>${name}</p></div>\
-				<div class="close close-${name}" title="Fermer cette fenetre ?">\
-					<i class="fa-solid fa-xmark"></i>\
-				</div>\
+				<div class="btn-win">\
+					<div class="reduce reduce-${name}"><i class="fa-solid fa-down-left-and-up-right-to-center"></i></div>
+					<div class="close close-${name}" title="Fermer cette fenetre ?">\
+						<i class="fa-solid fa-xmark"></i>\
+					</div>\
+				</div>
 			</div>\
 			<div class="wbody"></div>`;
-		
+
 		this._instance = document.createElement("div");
 		this._instance.classList.add('window');
 		this._instance.classList.add(name);
 		this._instance.innerHTML = content;
 		parent.appendChild(this._instance);
-
+		const r = this._instance.getBoundingClientRect();
+		this._position = {x: r.left, y: r.top}
 		this._instance.style.zIndex = '30';
 		this._title = document.querySelector(`.title-${name}`);
 
 		let close = document.querySelector(`.close-${name}`);
+		let reduce = document.querySelector(`.reduce-${name}`);
+		reduce.addEventListener('click', ()=>{
+			const rp = creator.getBoundingClientRect();
+			const centerThis =  { x: r.left + r.width/2, y: r.top + r.height/2 };
+			const dockIcon = {x: rp.left + rp.width / 2, y: rp.top + rp.height/2};
+			const centerTranslate = {};
+			centerTranslate.x = (dockIcon.x - centerThis.x);
+			centerTranslate.y = (dockIcon.y - centerThis.y);
+			this._reduced = true;
+			this._instance.style.setProperty('--centerX', centerTranslate.x + 'px');
+			this._instance.style.setProperty('--centerY', centerTranslate.y + 'px');
+			this._instance.classList.add('hide-win');
+			creator.querySelector('div').classList.remove('hide');
+		});
 		close.addEventListener('click', ()=>{
 			delete createdWin[this._name];
 			parent.removeChild(this._instance);
@@ -59,5 +81,22 @@ class win {
 
 	thisInstance(){
 		return this._instance;
+	}
+
+	reduced(){
+		return this._reduced;
+	}
+	position(){
+		return this._position;
+	}
+	restore() {
+		if (!this._reduced) return;
+		this._instance.classList.remove('hide-win');
+		this._instance.classList.add('restore-win');
+		this._creator.querySelector('div').classList.add('hide');
+		this._reduced = false;
+		this._instance.addEventListener('animationend', () => {
+			this._instance.classList.remove('restore-win');
+		}, { once: true });
 	}
 }
