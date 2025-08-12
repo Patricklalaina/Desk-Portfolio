@@ -44,7 +44,7 @@ body {
 .dock .home-hide {
 	width: 10px;
 	height: 10px;
-	background-color: #FFAE9D;
+	background-color: rgb(63, 255, 127);
 	margin-top: 5px;
 	border-radius: 50%;
 }
@@ -60,7 +60,7 @@ body {
 .dock .about-hide {
 	width: 10px;
 	height: 10px;
-	background-color: #137C8B;
+	background-color: rgb(63, 255, 127);
 	margin-top: 5px;
 	border-radius: 50%;
 }
@@ -76,7 +76,7 @@ body {
 .dock .project-hide {
 	width: 10px;
 	height: 10px;
-	background-color: #7d86ff;
+	background-color: rgb(63, 255, 127);
 	margin-top: 5px;
 	border-radius: 50%;
 }
@@ -96,7 +96,7 @@ body {
 .dock .contact-hide {
 	width: 10px;
 	height: 10px;
-	background-color: #5fccff;
+	background-color: rgb(63, 255, 127);
 	margin-top: 5px;
 	border-radius: 50%;
 }
@@ -121,6 +121,10 @@ body {
 	border-radius: 20px;
 	border: 3px rgb(36, 36, 36) solid;
 	position: absolute;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: rgb(63, 255, 127) rgb(32, 32, 32);
+	color: white;
 }
 
 .window .head {
@@ -147,7 +151,7 @@ body {
 }
 
 .window .head .btn-win >*:hover{
-	color: red;
+	color: rgb(63, 255, 127);
 	cursor: pointer;
 }
 
@@ -189,4 +193,91 @@ body {
 
 .restore-win {
 	animation: magicRestore 0.5s forwards ease-out;
+}
+
+.wbody-Contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.wbody-Contact .contact-top {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.wbody-Contact .contact-top >* {
+	margin: 0px;
+}
+
+.wbody-Contact .contact-top h2 {
+	font-size: 2.5rem;
+}
+
+.wbody-Contact .contact-top p {
+	color: rgb(104, 104, 104);
+	font-size: 1.2rem;
+}
+
+.wbody-Contact .contact-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.wbody-Contact .contact-bottom .left-contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: auto;
+	height: auto;
+}
+
+.wbody-Contact .contact-bottom .left-contact .contact-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	margin: 10px;
+}
+
+.wbody-Contact .contact-bottom .left-contact .contact-item .contact-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	color: white;
+	font-size: 2rem;
+	border-radius: 50%;
+	background-color: rgb(63, 255, 127);
+	margin-right: 5px;
+}
+
+.wbody-Contact .contact-bottom .left-contact .contact-item .contact-details {
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	margin-left: 20px;
+}
+
+.wbody-Contact .contact-bottom .left-contact .contact-item .contact-details >* {
+	margin: 0px;
+}
+
+.wbody-Contact .contact-bottom .left-contact .contact-item .contact-details h4 {
+	font-size: 1.3rem;
+	margin-bottom: 6px;
+}
+
+.wbody-Contact .contact-bottom .right-contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }

@@ -10,6 +10,7 @@ class win {
 	_reduced = false
 	_creator
 	_position
+	_content
 	constructor(name, parent, creator){
 		this._parent = parent;
 		this._name = name;
@@ -24,7 +25,7 @@ class win {
 					</div>\
 				</div>
 			</div>\
-			<div class="wbody"></div>`;
+			<div class="wbody wbody-${name}"></div>`;
 
 		this._instance = document.createElement("div");
 		this._instance.classList.add('window');
@@ -35,7 +36,8 @@ class win {
 		this._position = {x: r.left, y: r.top}
 		this._instance.style.zIndex = '30';
 		this._title = document.querySelector(`.title-${name}`);
-
+		this._content = document.querySelector(`.wbody-${name}`);
+		this.getContent(checkContent(name));
 		let close = document.querySelector(`.close-${name}`);
 		let reduce = document.querySelector(`.reduce-${name}`);
 		reduce.addEventListener('click', ()=>{
@@ -98,5 +100,9 @@ class win {
 		this._instance.addEventListener('animationend', () => {
 			this._instance.classList.remove('restore-win');
 		}, { once: true });
+	}
+
+	getContent(content){
+		this._content.innerHTML = content;
 	}
 }
