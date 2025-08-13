@@ -121,9 +121,6 @@ body {
 	border-radius: 20px;
 	border: 3px rgb(36, 36, 36) solid;
 	position: absolute;
-	overflow-y: auto;
-	scrollbar-width: thin;
-	scrollbar-color: rgb(63, 255, 127) rgb(32, 32, 32);
 	color: white;
 }
 
@@ -135,6 +132,7 @@ body {
 	align-items: center;
 	border-radius: 17px 17px 0px 0px;
 	color: white;
+	z-index: 20;
 }
 
 .window .head .title {
@@ -144,6 +142,7 @@ body {
 	font-size: larger;
 	position: inherit;
 	left: 0;
+	z-index: 20;
 }
 
 .window .head .title:hover {
@@ -200,6 +199,9 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: rgb(63, 255, 127) rgb(32, 32, 32);
 }
 
 .wbody-Contact .contact-top {
@@ -229,6 +231,7 @@ body {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: 10px;
 }
 
 .wbody-Contact .contact-bottom .left-contact {
@@ -280,4 +283,76 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+}
+
+.wbody-Contact .contact-bottom .left-contact a {
+	text-decoration: none;
+	color: white;
+}
+
+.wbody-Contact .contact-bottom .right-contact .input-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 5px;
+	background-color: #343a40;
+	color: white;
+	font-size: 2.2rem;
+	border-radius: 10px;
+	overflow: hidden;
+	height: 50px;
+	width: 400px;
+}
+
+.wbody-Contact .contact-bottom .right-contact .input-item label {
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 0;
+	color: white;
+	width: 80px;
+	background-color: rgb(63, 255, 127);
+}
+
+.wbody-Contact .contact-bottom .right-contact .input-item input {
+	background-color: #343a40;
+	color: rgb(214, 214, 214);
+	outline: none;
+	width: 100%;
+	font-size: 1.1rem;
+	padding: 5px;
+	border: none;
+	padding-left: 10px;
+	opacity: 30%;
+}
+
+.wbody-Contact .contact-bottom .right-contact .text {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 5px;
+	background-color: #343a40;
+	color: white;
+	font-size: 2.2rem;
+	border-radius: 10px;
+	overflow: hidden;
+	height: 200px;
+	width: 400px;
+	padding: 20px 0px;
+}
+
+.wbody-Contact .contact-bottom .right-contact .text textarea {
+	background-color: #343a40;
+	color: rgb(214, 214, 214);
+	outline: none;
+	font-size: 1.1rem;
+	padding: 5px;
+	border: none;
+	padding-left: 10px;
+	opacity: 30%;
+	width: 100%;
+	height: 100%;
+	margin: 10px;
 }
