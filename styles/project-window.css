@@ -8,7 +8,7 @@
 }
 
 .wbody-Projects .left {
-  width: 25%;
+  width: 23%;
   min-width: 160px;
   height: 100%;
   border-right: 3px var(--gh-border) solid;
@@ -30,6 +30,10 @@
     cursor: pointer;
 }
 
+.wbody-Projects .left ul li.active-fold {
+    color: var(--gh-accent);
+}
+
 .wbody-Projects .left ul li p:hover {
     text-decoration: underline;
 }
@@ -40,11 +44,13 @@
     color: var(--gh-text);
 }
 
+
+
 .wbody-Projects .right {
-  flex-grow: 1;
+  flex: 1 1 0;
+  flex-wrap: wrap;
   margin-left: 0;
   height: 100%;
-  padding: 2rem;
   background-color: var(--gh-bg);
   overflow-y: scroll;
   color: #eee;
@@ -52,5 +58,56 @@
   display: flex;
 }
 
+.wbody-Projects .right>*{
+    margin: 10px;
+}
 
 
+.wbody-Projects .right .project-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 250px;
+    overflow: hidden;
+    border: 1px var(--gh-border) solid;
+    border-radius: 15px;
+    background-color: var(--gh-panel);
+}
+
+.wbody-Projects .right .project-container img {
+    width: 100%;
+    height: 50%;
+}
+
+.wbody-Projects .right .project-container p {
+    margin: 5px;
+}
+
+.wbody-Projects .right .project-container .title {
+    font-size: 1.6rem;
+    color: var(--gh-accent);
+}
+
+.wbody-Projects .right .project-container .list-project {
+    display: inline-flex;
+    list-style: none;
+    color: var(--gh-text);
+    opacity: 50%;
+    font-size: 1rem;
+}
+
+.wbody-Projects .right .project-container .link {
+    cursor: pointer;
+}
+
+.wbody-Projects .right .project-container .link i {
+    margin-right: 10px;
+}
+
+.wbody-Projects .right .project-container .link:hover {
+    opacity: 70%;
+    text-decoration: underline;
+    text-decoration-color: var(--gh-accent);
+}
