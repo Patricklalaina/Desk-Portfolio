@@ -16,7 +16,7 @@ class win {
 		this._name = name;
 		this._creator = creator;
 		let content = `\
-			<div class="head">\
+			<div class="head head-${name}">\
 				<div class="title title-${name}"><p>${name}</p></div>\
 				<div class="btn-win">\
 					<div class="reduce reduce-${name}"><i class="fa-solid fa-down-left-and-up-right-to-center"></i></div>
@@ -35,7 +35,7 @@ class win {
 		const r = this._instance.getBoundingClientRect();
 		this._position = {x: r.left, y: r.top}
 		this._instance.style.zIndex = '30';
-		this._title = document.querySelector(`.title-${name}`);
+		this._title = document.querySelector(`.head-${name}`);
 		this._content = document.querySelector(`.wbody-${name}`);
 		this.getContent(checkContent(name));
 		let close = document.querySelector(`.close-${name}`);

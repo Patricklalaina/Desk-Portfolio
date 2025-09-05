@@ -62,31 +62,43 @@ html {
   bottom: 32px;
   z-index: 1000;
 }
-
-/* Children of .dock - macOS dock style animation */
 .container .dock > * {
-  margin: 0 6px;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--gh-border);
-  border-radius: 50%;
-  background: var(--gh-bg);
-  color: var(--gh-accent);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    background 0.15s,
-    border-color 0.15s,
-    color 0.15s,
-    box-shadow 0.15s,
-    transform 0.18s cubic-bezier(.34,1.56,.64,1);
-  font-size: 1.25rem;
-  box-sizing: border-box;
-  cursor: pointer;
-  will-change: transform;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 8px;
+	width: 72px; /* Augmente la taille du parent */
+	height: 72px;
+	border: 2.5px solid var(--gh-border);
+	border-radius: 50%;
+	background: var(--gh-bg);
+	color: var(--gh-accent);
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		background 0.15s,
+		border-color 0.15s,
+		color 0.15s,
+		box-shadow 0.15s,
+		transform 0.18s cubic-bezier(.34,1.56,.64,1);
+	font-size: 1.25rem;
+	box-sizing: border-box;
+	cursor: pointer;
+	will-change: transform;
 }
+
+.container .dock > * > i {
+	width: 90%;
+	height: 90%;
+	font-size: 1.5em; /* Ajuste ce chiffre pour la taille désirée */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0;
+}
+
 
 .container .dock > *:hover,
 .container .dock > *:focus {
@@ -106,14 +118,14 @@ html {
   box-shadow: 0 4px 12px 2px rgba(9,105,218,0.10);
 }
 
-/* Empêche le contenu interne de dépasser */
-.container .dock > * > * {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  font-size: 1rem;
-  text-align: center;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+.home-hide, .about-hide, .project-hide, .contact-hide {
+	background-color: var(--gh-accent);
+	width: 10px;
+	height: 5px;
+	border-radius: 5px;
+	margin-bottom: 8px;
+}
+
+.hide {
+	display: none;
 }
