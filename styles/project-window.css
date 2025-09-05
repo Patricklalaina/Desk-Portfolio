@@ -1,0 +1,56 @@
+.wbody-Projects {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  position: relative;
+}
+
+.wbody-Projects .left {
+  width: 25%;
+  min-width: 160px;
+  height: 100%;
+  border-right: 3px var(--gh-border) solid;
+  position: relative;
+  color: #fff;
+  padding: 1rem 0.5rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.wbody-Projects .left ul {
+    list-style: none;
+}
+
+.wbody-Projects .left ul li {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.wbody-Projects .left ul li p:hover {
+    text-decoration: underline;
+}
+
+.wbody-Projects .left ul li p {
+    margin-left: 10px;
+    font-size: 1rem;
+    color: var(--gh-text);
+}
+
+.wbody-Projects .right {
+  flex-grow: 1;
+  margin-left: 0;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--gh-bg);
+  overflow-y: scroll;
+  color: #eee;
+  box-sizing: border-box;
+  display: flex;
+}
+
+
+
