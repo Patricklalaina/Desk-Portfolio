@@ -1,358 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@100..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+  /* GitHub light theme colors */
+  --gh-bg: #f6f8fa;
+  --gh-panel: #ffffff;
+  --gh-border: #d0d7de;
+  --gh-text: #24292f;
+  --gh-accent: #0969da;
+  --gh-hover: #f3f4f6;
+}
 
-body {
-	margin: 0;
-	padding: 0;
-	background-color: #343a40;
-	font-family: "M PLUS Code Latin", monospace;
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* GitHub dark theme colors */
+    --gh-bg: #0d1117;
+    --gh-panel: #161b22;
+    --gh-border: #30363d;
+    --gh-text: #c9d1d9;
+    --gh-accent: #58a6ff;
+    --gh-hover: #21262d;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background: var(--gh-bg);
+  color: var(--gh-text);
+  width: 100vw;
+  height: 100vh;
 }
 
 .container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100vw;
-	height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: var(--gh-bg);
 }
 
-.dock {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-	background: rgb(36, 36, 36);
-	width: 410px;
-	font-size: 4rem;
-	position: fixed;
-	bottom: 0;
-	margin-bottom: 50px;
-	border-radius: 15px;
-	-webkit-box-shadow: -2px 6px 4px 4px rgba(112,112,112,0.87);
-	box-shadow: -2px 6px 4px 4px rgba(112,112,112,0.87);
-	padding: 10px;
-	z-index: 100;
+/* Dock styles */
+.container .dock {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--gh-panel);
+  border-radius: 15px;
+  border: 1.5px solid var(--gh-border);
+  box-shadow: 0 2px 12px rgba(27,31,35,0.04);
+  padding: 16px 32px;
+  font-size: 3rem;
+  gap: 12px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 32px;
+  z-index: 1000;
 }
 
-.dock .home {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: #FFAE9D;
+/* Children of .dock - macOS dock style animation */
+.container .dock > * {
+  margin: 0 6px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--gh-border);
+  border-radius: 50%;
+  background: var(--gh-bg);
+  color: var(--gh-accent);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s,
+    box-shadow 0.15s,
+    transform 0.18s cubic-bezier(.34,1.56,.64,1);
+  font-size: 1.25rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  will-change: transform;
 }
 
-.dock .home-hide {
-	width: 10px;
-	height: 10px;
-	background-color: rgb(63, 255, 127);
-	margin-top: 5px;
-	border-radius: 50%;
+.container .dock > *:hover,
+.container .dock > *:focus {
+  /* Effet dock macOS : zoom, lévitation et légère rotation */
+  transform: scale(1.45) translateY(-8px) rotate(-4deg);
+  box-shadow: 0 8px 24px 2px rgba(9,105,218,0.18),
+              0 1.5px 6px 0px rgba(0,0,0,0.04);
+  background: var(--gh-hover);
+  border-color: var(--gh-accent);
+  color: var(--gh-accent);
+  z-index: 10;
 }
 
-.dock .about {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: #137C8B;
+.container .dock > *:active {
+  /* Animation lors du clic */
+  transform: scale(1.22) translateY(-4px) rotate(0deg);
+  box-shadow: 0 4px 12px 2px rgba(9,105,218,0.10);
 }
 
-.dock .about-hide {
-	width: 10px;
-	height: 10px;
-	background-color: rgb(63, 255, 127);
-	margin-top: 5px;
-	border-radius: 50%;
-}
-
-.dock .project {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: #7d86ff;
-}
-
-.dock .project-hide {
-	width: 10px;
-	height: 10px;
-	background-color: rgb(63, 255, 127);
-	margin-top: 5px;
-	border-radius: 50%;
-}
-
-.dock .contact {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	color: #5fccff;
-}
-
-.dock >* .hide {
-	display: none;
-}
-
-.dock .contact-hide {
-	width: 10px;
-	height: 10px;
-	background-color: rgb(63, 255, 127);
-	margin-top: 5px;
-	border-radius: 50%;
-}
-
-.dock >* i {
-	transition: linear;
-	transition-duration: 0.3s;
-	cursor: pointer;
-}
-
-.dock >* i:hover {
-	transform: translate(0px, -20px) scale(1.2, 1.2);
-	text-shadow: 2px 9px 8px #7C7C7C;
-}
-
-.container .window {
-	display: flex;
-	flex-direction: column;
-	width: 900px;
-	height: 600px;
-	background-color: rgb(32, 32, 32);
-	border-radius: 20px;
-	border: 3px rgb(36, 36, 36) solid;
-	position: absolute;
-	color: white;
-}
-
-.window .head {
-	display: flex;
-	height: 50px;
-	width: 100%;
-	background-color: rgb(36, 36, 36);
-	align-items: center;
-	border-radius: 17px 17px 0px 0px;
-	color: white;
-	z-index: 20;
-}
-
-.window .head .title {
-	width: 820px;
-	text-align: center;
-	font-weight: bold;
-	font-size: larger;
-	position: inherit;
-	left: 0;
-	z-index: 20;
-}
-
-.window .head .title:hover {
-	cursor: grab;
-}
-
-.window .head .btn-win >*:hover{
-	color: rgb(63, 255, 127);
-	cursor: pointer;
-}
-
-.window .head .btn-win {
-	display: flex;
-	justify-content: space-around;
-	width: 80px;
-	align-items: center;
-	text-align: center;
-}
-
-
-.hide-win {
-	animation: magicLamp 0.5s forwards ease-in;
-}
-
-@keyframes magicLamp {
-	0% {
-		transform: translate(0, 0) scale(1);
-		opacity: 1;
-	}
-	100% {
-		transform: translate(var(--centerX), var(--centerY)) scale(0);
-		opacity: 0;
-	}
-}
-
-
-@keyframes magicRestore {
-	0% {
-		transform: translate(var(--centerX), var(--centerY)) scale(0);
-		opacity: 0;
-	}
-	100% {
-		transform: translate(0, 0) scale(1);
-		opacity: 1;
-	}
-}
-
-.restore-win {
-	animation: magicRestore 0.5s forwards ease-out;
-}
-
-.wbody-Contact {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	overflow-y: auto;
-	scrollbar-width: thin;
-	scrollbar-color: rgb(63, 255, 127) rgb(32, 32, 32);
-}
-
-.wbody-Contact .contact-top {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
-
-.wbody-Contact .contact-top >* {
-	margin: 0px;
-}
-
-.wbody-Contact .contact-top h2 {
-	font-size: 2.5rem;
-}
-
-.wbody-Contact .contact-top p {
-	color: rgb(104, 104, 104);
-	font-size: 1.2rem;
-}
-
-.wbody-Contact .contact-bottom {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 10px;
-}
-
-.wbody-Contact .contact-bottom .left-contact {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: auto;
-	height: auto;
-}
-
-.wbody-Contact .contact-bottom .left-contact .contact-item {
-	display: flex;
-	flex-direction: row;
-	justify-content: start;
-	align-items: center;
-	margin: 10px;
-}
-
-.wbody-Contact .contact-bottom .left-contact .contact-item .contact-icon {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 50px;
-	height: 50px;
-	color: white;
-	font-size: 2rem;
-	border-radius: 50%;
-	background-color: rgb(63, 255, 127);
-	margin-right: 5px;
-}
-
-.wbody-Contact .contact-bottom .left-contact .contact-item .contact-details {
-	display: flex;
-	flex-direction: column;
-	align-items: start;
-	margin-left: 20px;
-}
-
-.wbody-Contact .contact-bottom .left-contact .contact-item .contact-details >* {
-	margin: 0px;
-}
-
-.wbody-Contact .contact-bottom .left-contact .contact-item .contact-details h4 {
-	font-size: 1.3rem;
-	margin-bottom: 6px;
-}
-
-.wbody-Contact .contact-bottom .right-contact {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-}
-
-.wbody-Contact .contact-bottom .left-contact a {
-	text-decoration: none;
-	color: white;
-}
-
-.wbody-Contact .contact-bottom .right-contact .input-item {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin: 5px;
-	background-color: #343a40;
-	color: white;
-	font-size: 2.2rem;
-	border-radius: 10px;
-	overflow: hidden;
-	height: 50px;
-	width: 400px;
-}
-
-.wbody-Contact .contact-bottom .right-contact .input-item label {
-	display: flex;
-	height: 50px;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	margin: 0;
-	color: white;
-	width: 80px;
-	background-color: rgb(63, 255, 127);
-}
-
-.wbody-Contact .contact-bottom .right-contact .input-item input {
-	background-color: #343a40;
-	color: rgb(214, 214, 214);
-	outline: none;
-	width: 100%;
-	font-size: 1.1rem;
-	padding: 5px;
-	border: none;
-	padding-left: 10px;
-	opacity: 30%;
-}
-
-.wbody-Contact .contact-bottom .right-contact .text {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin: 5px;
-	background-color: #343a40;
-	color: white;
-	font-size: 2.2rem;
-	border-radius: 10px;
-	overflow: hidden;
-	height: 200px;
-	width: 400px;
-	padding: 20px 0px;
-}
-
-.wbody-Contact .contact-bottom .right-contact .text textarea {
-	background-color: #343a40;
-	color: rgb(214, 214, 214);
-	outline: none;
-	font-size: 1.1rem;
-	padding: 5px;
-	border: none;
-	padding-left: 10px;
-	opacity: 30%;
-	width: 100%;
-	height: 100%;
-	margin: 10px;
+/* Empêche le contenu interne de dépasser */
+.container .dock > * > * {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  font-size: 1rem;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
