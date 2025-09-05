@@ -1,9 +1,33 @@
-const hContent = '<div class="contact-top">\
-					<h1>Hi! I\'m <span style="color: rgb(63, 255, 127);">Patrick</span></h1>\
-					<h2>Full-Stack Developer</h2>\
-					<p style="color: rgb(65, 65, 65);">As a game and website developer and systems programmer, I am always ready to take on new challenges.</p>\
-				</div>\
-				<div class="contact-bottom"></div>';
+const hContent = `<div class="presentation-top">
+					<h1>Hi! I'm <span style="color: rgb(63, 255, 127);">Patrick</span></h1>
+					<h2>FullStack Developer</h2>
+					<ul>
+						<li>
+							<div>
+								<i class="fas fa-gamepad"></i>
+							</div>
+							<p>Game Developer</p>
+						</li>
+						<li>
+							<div>
+								<i class="fas fa-globe"></i>
+							</div>
+							<p>Web Developer</p>
+						</li>
+						<li>
+							<div>
+								<i class="fas fa-computer"></i>
+							</div>
+							<p>Desktop Developer</p>
+						</li>
+						<li>
+							<div>
+								<i class="fas fa-chart-simple"></i>
+							</div>
+							<p>Data Analyst</p>
+						</li>
+					</ul>
+				</div>`;
 const aContent = '';
 const pContent = '';
 const cContent = '<div class="contact-top">\
