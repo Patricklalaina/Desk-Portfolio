@@ -40,19 +40,14 @@ const cContent = '<div class="contact-top">\
 							</div>\
 						</div>\
 					</div>\
-					<div style="margin: 0px 70px;"><h2>- OR - </h2></div>\
+					<div style="width: 15%;margin: 10px;text-align: center;"><h3>- OR - </h3></div>\
 					<div class="right-contact">\
-						<div class="input-item">\
-							<label for="email"><i class="fa-solid fa-envelope"></i></label>\
+						<form>\
 							<input type="email" name="email" id="email" placeholder="your@mail.com">\
-						</div>\
-						<div class="input-item">\
-							<label for="objet"><i class="fa-solid fa-clipboard-question"></i></label>\
 							<input type="text" name="objet" id="objet" placeholder="Object: ...">\
-						</div>\
-						<div class="input-item text">\
 							<textarea name="message" id="message" placeholder="your message ..."></textarea>\
-						</div>\
+							<input type="submit" value="Submit">\
+						</form>\
 					</div>\
 				</div>';
 

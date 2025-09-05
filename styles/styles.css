@@ -4,7 +4,7 @@
   --gh-panel: #ffffff;
   --gh-border: #d0d7de;
   --gh-text: #24292f;
-  --gh-accent: #0969da;
+  --gh-accent: rgb(0, 253, 84);
   --gh-hover: #f3f4f6;
 }
 
@@ -15,7 +15,7 @@
     --gh-panel: #161b22;
     --gh-border: #30363d;
     --gh-text: #c9d1d9;
-    --gh-accent: #58a6ff;
+    --gh-accent: rgb(63, 255, 127);
     --gh-hover: #21262d;
   }
 }
@@ -103,8 +103,8 @@ html {
 .container .dock > *:hover,
 .container .dock > *:focus {
   /* Effet dock macOS : zoom, lévitation et légère rotation */
-  transform: scale(1.45) translateY(-8px) rotate(-4deg);
-  box-shadow: 0 8px 24px 2px rgba(9,105,218,0.18),
+  transform: scale(1.4) translateY(-8px) rotate(-4deg);
+  box-shadow: 0 8px 24px 2px rgba(63, 255, 127, 0.18),
               0 1.5px 6px 0px rgba(0,0,0,0.04);
   background: var(--gh-hover);
   border-color: var(--gh-accent);

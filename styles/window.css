@@ -1,89 +1,87 @@
 .window {
-  position: absolute;
-  width: 60%;
-  height: 80%;
-  min-width: 480px;
-  min-height: 340px;
-  max-width: 60%;
-  max-height: 80%;
-  background: var(--gh-panel);
-  border: 2px solid var(--gh-border);
-  border-radius: 17px;
-  overflow: scroll;
-  z-index: 30;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.15s, border-color 0.12s;
+    position: absolute;
+    width: 60%;
+    height: 80%;
+    min-width: 480px;
+    min-height: 340px;
+    max-width: 60%;
+    max-height: 80%;
+    background: var(--gh-panel);
+    border: 2px solid var(--gh-border);
+    border-radius: 17px;
+    overflow: scroll;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s, border-color 0.12s;
 }
 
 .window .head {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gh-hover);
-  border-bottom: 1.5px solid var(--gh-border);
-  padding: 0.7em 1.2em 0.7em 1.25em;
-  cursor: grab;
-  user-select: none;
-  position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gh-hover);
+    border-bottom: 1.5px solid var(--gh-border);
+    padding: 0.7em 1.2em 0.7em 1.25em;
+    cursor: grab;
+    user-select: none;
+    position: relative;
 }
 
 /* Titre centré, même si boutons à droite */
 .window .title {
-  flex: 1 1 auto;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--gh-text);
-  letter-spacing: 0.01em;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none; /* évite de draguer le titre par erreur */
+    flex: 1 1 auto;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--gh-text);
+    letter-spacing: 0.01em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* évite de draguer le titre par erreur */
 }
 
 /* Les boutons n'affectent pas le centrage */
 .window .btn-win {
-  position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  gap: 0.4em;
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 0.4em;
 }
 
 /* Boutons sans bordure, effet rond simple, hover coloré */
 .window .btn-win > div {
-  width: 28px;
-  height: 28px;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gh-accent);
-  font-size: 1.18em;
-  transition: background 0.14s, color 0.14s;
-  cursor: pointer;
-  outline: none;
-  box-shadow: none;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.18em;
+    color: #fff;
+    transition: background 0.14s, color 0.14s;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
 }
 
 .window .btn-win > div:hover {
-  background: var(--gh-accent);
-  color: #fff;
+    color: var(--gh-accent);
 }
 
 .window .wbody {
-  flex: 1 1 auto;
-  background: transparent;
-  overflow: auto;
-  padding: 1.3em 1.3em 1.1em 1.3em;
-  color: var(--gh-text);
-  font-size: 1rem;
-  border-radius: 0 0 17px 17px;
-  transition: background 0.18s;
+    flex: 1 1 auto;
+    background: transparent;
+    overflow: auto;
+    padding: 1.3em 1.3em 1.1em 1.3em;
+    color: var(--gh-text);
+    font-size: 1rem;
+    border-radius: 0 0 17px 17px;
+    transition: background 0.18s;
 }
 
 /* Animation pour réduire/restaurer */
@@ -105,9 +103,10 @@
 }
 
 .hide-win {
-  animation: win-reduce 340ms cubic-bezier(.34,1.56,.64,1) forwards;
-  pointer-events: none;
+    animation: win-reduce 340ms cubic-bezier(.34,1.56,.64,1) forwards;
+    pointer-events: none;
 }
+
 .restore-win {
-  animation: win-restore 340ms cubic-bezier(.34,1.56,.64,1) forwards;
+    animation: win-restore 340ms cubic-bezier(.34,1.56,.64,1) forwards;
 }
