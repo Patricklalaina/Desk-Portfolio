@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: max-content;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px var(--gh-border) solid;
+    background-color: var(--gh-panel);
+    padding: 30px;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+form >* {
+    width: 100%;
+}
+
+form #passwd {
+    margin: 20px 0px;
+    margin-bottom: 50px;
+}
+
+form input:not([type='submit']){
+    height: 50px;
+    outline: none;
+    background-color: transparent;
+    color: var(--gh-text);
+    padding: 20px;
+    border: none;
+    border-bottom: 2px var(--gh-text) solid;
+}
+
+form input[type='submit'] {
+    height: 50px;
+    background-color: var(--gh-bg);
+    border: 1px var(--gh-accent) solid;
+    color: var(--gh-accent);
+    cursor: pointer;
+}
+
+form input[type='submit']:hover {
+    opacity: 20%;
+}

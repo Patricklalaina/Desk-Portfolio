@@ -25,6 +25,10 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none; 
 }
 
 body,
@@ -102,7 +106,6 @@ html {
 
 .container .dock > *:hover,
 .container .dock > *:focus {
-  /* Effet dock macOS : zoom, lévitation et légère rotation */
   transform: scale(1.4) translateY(-8px) rotate(-4deg);
   box-shadow: 0 8px 24px 2px rgba(63, 255, 127, 0.18),
               0 1.5px 6px 0px rgba(0,0,0,0.04);
