@@ -7,13 +7,14 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 25%;
     height: max-content;
     justify-content: space-around;
     align-items: center;
     border: 2px var(--gh-border) solid;
     background-color: var(--gh-panel);
     padding: 30px;
+    border-radius: 15px;
 }
 
 form h1 {
@@ -26,18 +27,27 @@ form >* {
 }
 
 form #passwd {
-    margin: 20px 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     margin-bottom: 50px;
 }
 
 form input:not([type='submit']){
     height: 50px;
     outline: none;
-    background-color: transparent;
+    background-color: var(--gh-bg);
     color: var(--gh-text);
     padding: 20px;
+    border-radius: 15px;
     border: none;
-    border-bottom: 2px var(--gh-text) solid;
+}
+
+form input:not([type='submit']):hover {
+    border-bottom: 2px var(--gh-accent) solid;
+}
+
+form input:not([type='submit']):focus {
+    border-bottom: 2px var(--gh-accent) solid;
 }
 
 form input[type='submit'] {
@@ -45,9 +55,12 @@ form input[type='submit'] {
     background-color: var(--gh-bg);
     border: 1px var(--gh-accent) solid;
     color: var(--gh-accent);
+    opacity: 70%;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 form input[type='submit']:hover {
-    opacity: 20%;
+    opacity: 100%;
+    box-shadow: 0 2px 12px var(--gh-accent);
 }

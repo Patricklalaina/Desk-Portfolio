@@ -45,6 +45,146 @@ const pContent = `<div class="left">
 					<p class="link"><i class="fa fa-eye"></i>See project</p>
 					<p class="list-project">C, C++</p>
 				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
+				<div class="project-container">
+					<img src="assets/bg.png" alt="preview">
+					<h1 class="title">Project Name</h1>
+					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
+					<p class="link"><i class="fa fa-eye"></i>See project</p>
+					<p class="list-project">C, C++</p>
+				</div>
 			</div>`;
 const cContent = `<div class="contact-top">
 					<h2>Contact me!</h2>
