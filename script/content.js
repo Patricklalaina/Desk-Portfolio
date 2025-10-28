@@ -28,164 +28,112 @@ const hContent = `<div class="presentation-top">
 						</li>
 					</ul>
 				</div>`;
+
 const aContent = '';
-const pContent = `<div class="left">
+
+// Configuration de l'URL de votre backend Django
+const API_URL = 'http://localhost:8000/api/projects/';
+
+// Variable pour stocker les projets récupérés
+let projectsData = [];
+
+// Fonction pour récupérer les projets depuis le backend
+async function fetchProjects() {
+	try {
+		const response = await fetch(API_URL);
+		if (!response.ok) {
+			throw new Error(`HTTP error! status: ${response.status}`);
+		}
+		const data = await response.json();
+		projectsData = data;
+		console.log('Projets récupérés:', projectsData);
+		return data;
+	} catch (error) {
+		console.error('Erreur lors de la récupération des projets:', error);
+		return [];
+	}
+}
+
+// Fonction pour générer le HTML d'un projet
+function generateProjectHTML(project) {
+	// Joindre les langages en une chaîne séparée par des virgules
+	const langages = Array.isArray(project.langages) 
+		? project.langages.join(', ') 
+		: project.langages || 'N/A';
+	
+	
+	return `
+		<div class="project-container">
+			<img src="${project.img}" alt="${project.title || 'preview'}" onerror="this.src='assets/bg.png'">
+			<h1 class="title">${project.title || 'Project Name'}</h1>
+			<p class="description-projet">${project.description || 'No description available.'}</p>
+			${project.url ? `<p class="link"><i class="fa fa-eye"></i><a href="${project.url}" target="_blank">See project</a></p>` : ''}
+			<p class="list-project">${langages}</p>
+		</div>
+	`;
+}
+
+// Fonction pour générer le contenu des projets par catégorie
+async function generateProjectsByCategory(category) {
+	// Charger les projets si ce n'est pas déjà fait
+	if (projectsData.length === 0) {
+		await fetchProjects();
+	}
+	
+	// Filtrer les projets selon la catégorie
+	const filteredProjects = projectsData.filter(project => {
+		// Normaliser la catégorie pour la comparaison (lowercase et trim)
+		const projectCategory = project.category ? project.category.toLowerCase().trim() : '';
+		const searchCategory = category.toLowerCase().trim();
+		
+		return projectCategory === searchCategory;
+	});
+	
+	console.log(`Projets filtrés pour la catégorie "${category}":`, filteredProjects);
+	
+	if (filteredProjects.length === 0) {
+		return '<p style="text-align:center; padding: 20px; color: #888;">Aucun projet dans cette catégorie pour le moment.</p>';
+	}
+	
+	return filteredProjects.map(project => generateProjectHTML(project)).join('');
+}
+
+// Fonction pour générer le contenu complet de la section projets
+async function generateProjectsContent() {
+	// Charger les projets si ce n'est pas déjà fait
+	if (projectsData.length === 0) {
+		await fetchProjects();
+	}
+
+	return `<div class="left">
 				<ul>
-					<li class="active-fold"><i class="fas fa-angle-right"></i><i class="fas fa-folder"></i><p>Game Projects</p></li>
-					<li><i class="fas fa-angle-right"></i><i class="fas fa-folder"></i><p>Web Projects</p></li>
-					<li><i class="fas fa-angle-right"></i><i class="fas fa-folder"></i><p>Software Projects</p></li>
-					<li><i class="fas fa-angle-right"></i><i class="fas fa-folder"></i><p>Data Projects</p></li>
+					<li class="active-fold" data-category="game">
+						<i class="fas fa-angle-right"></i>
+						<i class="fas fa-folder"></i>
+						<p>Game Projects</p>
+					</li>
+					<li data-category="web">
+						<i class="fas fa-angle-right"></i>
+						<i class="fas fa-folder"></i>
+						<p>Web Projects</p>
+					</li>
+					<li data-category="desktop">
+						<i class="fas fa-angle-right"></i>
+						<i class="fas fa-folder"></i>
+						<p>Desktop Projects</p>
+					</li>
+					<li data-category="data">
+						<i class="fas fa-angle-right"></i>
+						<i class="fas fa-folder"></i>
+						<p>Data Projects</p>
+					</li>
 				</ul>
 			</div>
 			<div class="right">
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
-				<div class="project-container">
-					<img src="assets/bg.png" alt="preview">
-					<h1 class="title">Project Name</h1>
-					<p class="description-projet">Lorem ipsum dolor sit ame.</p>
-					<p class="link"><i class="fa fa-eye"></i>See project</p>
-					<p class="list-project">C, C++</p>
-				</div>
+				${await generateProjectsByCategory('game')}
 			</div>`;
+}
+
 const cContent = `<div class="contact-top">
 					<h2>Contact me!</h2>
 					<p>Looking for an ambitious and competent employee? Contact me..</p>
@@ -231,14 +179,16 @@ const cContent = `<div class="contact-top">
 					</div>
 				</div>`;
 
-
-function checkContent(name){
+async function checkContent(name){
 	if (name == 'Presentation')
 		return hContent;
 	if (name == 'About')
 		return aContent;
 	if (name == 'Projects')
-		return pContent;
+		return await generateProjectsContent();
 	else
 		return cContent;
 }
+
+// Initialiser le chargement des projets au démarrage
+fetchProjects();

@@ -1,6 +1,6 @@
-let	createdWin = {}
+const createdWin = {};
 
-class win {
+class win{
 	_parent
 	_instance
 	_title
@@ -37,7 +37,10 @@ class win {
 		this._instance.style.zIndex = '30';
 		this._title = document.querySelector(`.head-${name}`);
 		this._content = document.querySelector(`.wbody-${name}`);
-		this.getContent(checkContent(name));
+		
+		// Charger le contenu de manière asynchrone
+		this.loadContent(name);
+		
 		let close = document.querySelector(`.close-${name}`);
 		let reduce = document.querySelector(`.reduce-${name}`);
 		reduce.addEventListener('click', ()=>{
@@ -62,7 +65,7 @@ class win {
 			this._isDragging = true;
 			this._offset.x = e.clientX - this._instance.offsetLeft;
 			this._offset.y = e.clientY - this._instance.offsetTop;
-			document.body.style.userSelect = "none"; // évite de sélectionner du texte en même temps
+			document.body.style.userSelect = "none";
 			for (let n of Object.keys(createdWin)){
 				createdWin[n].thisInstance().style.zIndex = '10';
 			}
@@ -77,7 +80,47 @@ class win {
 
 		document.addEventListener("mouseup", ()=>{
 			this._isDragging = false;
-			document.body.style.userSelect = ""; // réactive la sélection
+			document.body.style.userSelect = "";
+		});
+	}
+
+	// Nouvelle méthode asynchrone pour charger le contenu
+	async loadContent(name) {
+		const content = await checkContent(name);
+		this._content.innerHTML = content;
+		
+		// Si c'est la page Projects, ajouter les événements pour filtrer par catégorie
+		if (name === 'Projects') {
+			this.setupProjectFilters();
+		}
+	}
+
+	// Méthode pour gérer les filtres de projets par catégorie
+	setupProjectFilters() {
+		const categoryItems = this._content.querySelectorAll('.left ul li');
+		categoryItems.forEach(item => {
+			item.addEventListener('click', async () => {
+				// Retirer la classe active de tous les éléments
+				categoryItems.forEach(li => li.classList.remove('active-fold'));
+				// Ajouter la classe active à l'élément cliqué
+				item.classList.add('active-fold');
+				
+				// Récupérer la catégorie depuis l'attribut data-category
+				const category = item.getAttribute('data-category');
+				
+				console.log('Catégorie sélectionnée:', category);
+				
+				// Filtrer les projets
+				const rightDiv = this._content.querySelector('.right');
+				if (rightDiv && category) {
+					// Afficher un message de chargement
+					rightDiv.innerHTML = '<p style="text-align:center; padding: 20px;">Chargement...</p>';
+					
+					// Générer et afficher les projets filtrés
+					const projectsHTML = await generateProjectsByCategory(category);
+					rightDiv.innerHTML = projectsHTML;
+				}
+			});
 		});
 	}
 
@@ -88,9 +131,11 @@ class win {
 	reduced(){
 		return this._reduced;
 	}
+	
 	position(){
 		return this._position;
 	}
+	
 	restore() {
 		if (!this._reduced) return;
 		this._instance.classList.remove('hide-win');
