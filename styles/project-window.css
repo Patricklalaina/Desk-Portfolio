@@ -102,10 +102,10 @@
 .wbody-Projects .right .project-container {
     display: flex;
     flex-direction: column;
-    width: calc(33.333% - 14px);
-    min-width: 280px;
+    width: calc(50% - 10px);
+    min-width: 320px;
     height: auto;
-    min-height: 320px;
+    min-height: 350px;
     border: 1px var(--gh-border) solid;
     border-radius: 16px;
     background-color: var(--gh-panel);
@@ -207,9 +207,9 @@
 }
 
 /* Responsive design */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
     .wbody-Projects .right .project-container {
-        width: calc(50% - 10px);
+        width: 100%;
     }
 }
 
