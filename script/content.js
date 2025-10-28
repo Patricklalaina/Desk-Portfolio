@@ -32,7 +32,7 @@ const hContent = `<div class="presentation-top">
 const aContent = '';
 
 // Configuration de l'URL de votre backend Django
-const API_URL = 'http://localhost:8000/api/projects/';
+const API_URL = 'https://starfish123.pythonanywhere.com/api/projects/';
 
 // Variable pour stocker les projets récupérés
 let projectsData = [];
