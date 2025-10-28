@@ -104,14 +104,15 @@
     flex-direction: column;
     width: calc(33.333% - 14px);
     min-width: 280px;
-    height: 320px;
-    overflow: hidden;
+    height: auto;
+    min-height: 320px;
     border: 1px var(--gh-border) solid;
     border-radius: 16px;
     background-color: var(--gh-panel);
     transition: all 0.3s ease;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .wbody-Projects .right .project-container::before {
@@ -138,51 +139,43 @@
 
 .wbody-Projects .right .project-container img {
     width: 100%;
-    height: 180px;
+    height: 125px;
     object-fit: cover;
     transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
 .wbody-Projects .right .project-container:hover img {
     transform: scale(1.05);
 }
 
-.wbody-Projects .right .project-container .content {
-    padding: 15px 20px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    justify-content: space-between;
-}
-
-.wbody-Projects .right .project-container p {
-    margin: 5px 0;
-}
-
 .wbody-Projects .right .project-container .title {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.6rem;
     color: var(--gh-accent);
-    margin-bottom: 8px;
+    margin: 15px 15px 8px 15px;
     line-height: 1.3;
+    font-weight: 600;
+}
+
+.wbody-Projects .right .project-container .description-projet {
+    margin: 0 15px 10px 15px;
+    color: var(--gh-text);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    flex-grow: 1;
 }
 
 .wbody-Projects .right .project-container .list-project {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-}
-
-.wbody-Projects .right .project-container .list-project li {
-    background-color: rgba(255, 255, 255, 0.05);
+    margin: 10px 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
     color: var(--gh-text);
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    word-wrap: break-word;
     border: 1px solid var(--gh-border);
+    white-space: normal;
 }
 
 .wbody-Projects .right .project-container .link {
@@ -192,7 +185,7 @@
     color: var(--gh-accent);
     font-weight: 500;
     transition: all 0.3s ease;
-    margin-top: 8px;
+    margin: 10px 15px 15px 15px;
 }
 
 .wbody-Projects .right .project-container .link i {
