@@ -66,7 +66,7 @@ function generateProjectHTML(project) {
 			<img src="${project.img}" alt="${project.title || 'preview'}" onerror="this.src='assets/bg.png'">
 			<h1 class="title">${project.title || 'Project Name'}</h1>
 			<p class="description-projet">${project.description || 'No description available.'}</p>
-			${project.url ? `<p class="link"><i class="fa fa-eye"></i><a href="${project.url}" target="_blank">See project</a></p>` : ''}
+			${project.url ? `<p class="link"><i class="fa fa-eye"></i><a href="${project.url}" target="_blank">Voir le projet</a></p>` : ''}
 			<p class="list-project">${langages}</p>
 		</div>
 	`;
