@@ -134,8 +134,8 @@ async function generateProjectsContent() {
 }
 
 const cContent = `<div class="contact-top">
-					<h2>Contact me!</h2>
-					<p>Looking for an ambitious and competent employee? Contact me..</p>
+					<h2>Contactez-moi!</h2>
+					<p>A la recherche d'un developpeur pour un projet IT ? Contactez-moi!</p>
 				</div>
 				<div class="contact-bottom">
 					<div class="left-contact">
@@ -171,8 +171,8 @@ const cContent = `<div class="contact-top">
 					<div class="right-contact">
 						<form>
 							<input type="email" name="email" id="email" placeholder="your@mail.com">
-							<input type="text" name="objet" id="objet" placeholder="Object: ...">
-							<textarea name="message" id="message" placeholder="your message ..."></textarea>
+							<input type="text" name="objet" id="objet" placeholder="Objet: ...">
+							<textarea name="message" id="message" placeholder="message ..."></textarea>
 							<input type="submit" value="Submit">
 						</form>
 					</div>
