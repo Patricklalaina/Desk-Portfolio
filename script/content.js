@@ -31,7 +31,6 @@ const hContent = `<div class="presentation-top">
 
 const aContent = '';
 
-// Configuration de l'URL de votre backend Django
 const API_URL = 'https://starfish123.pythonanywhere.com/api/projects/';
 
 // Variable pour stocker les projets récupérés
@@ -146,7 +145,7 @@ const cContent = `<div class="contact-top">
 							</div>
 							<div class="contact-details">
 								<h4>Email</h4>
-								<p>patrickrandri0@gmail.com</p>
+								<p>patrickrandriamanambola@gmail.com</p>
 							</div>
 						</div>
 						<div class="contact-item">
