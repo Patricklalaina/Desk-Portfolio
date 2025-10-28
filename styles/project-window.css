@@ -167,15 +167,18 @@
 
 .wbody-Projects .right .project-container .list-project {
     margin: 10px 15px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.03);
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
     border-radius: 8px;
-    color: var(--gh-text);
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.8;
     word-wrap: break-word;
-    border: 1px solid var(--gh-border);
+    border: 1px solid rgba(88, 166, 255, 0.3);
     white-space: normal;
+    color: #a8d5ff;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    box-shadow: 0 2px 8px rgba(88, 166, 255, 0.15);
 }
 
 .wbody-Projects .right .project-container .link {
