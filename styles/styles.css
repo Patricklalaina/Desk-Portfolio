@@ -57,6 +57,13 @@ html {
   background: var(--gh-bg);
 }
 
+.background {
+  position: absolute;
+  width: 50vw;
+  height: 70vh;
+  z-index: 0;
+}
+
 /* Dock styles */
 .container .dock {
   display: flex;
